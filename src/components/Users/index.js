@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import * as usersActions from '../../actions/usersActions';
+
 class Users extends Component {
-  // async componentDidMount() {
-  //   const response = await axios.get('https://jsonplaceholder.typicode.com/users');
-  //
-  //   this.setState({
-  //     users: response.data,
-  //   });
-  // }
+  componentDidMount() {
+    // const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+    //
+    // this.setState({
+    //   users: response.data,
+    // });
+    this.props.getAllUsers();
+  }
 
   putRows = () => (
     this.props.users.map(user => (
@@ -22,18 +25,18 @@ class Users extends Component {
 
   render() {
     return (
-        <table className='table'>
-          <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Website</th>
-          </tr>
-          </thead>
-          <tbody>
-          { this.putRows() }
-          </tbody>
-        </table>
+      <table className='table'>
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Website</th>
+        </tr>
+        </thead>
+        <tbody>
+        { this.putRows() }
+        </tbody>
+      </table>
     );
   }
 }
@@ -42,4 +45,4 @@ const mapStateToProps = (reducers) => {
   return reducers.usersReducer;
 };
 
-export default connect(mapStateToProps, {/* Actions */ })(Users);
+export default connect(mapStateToProps, usersActions)(Users);
