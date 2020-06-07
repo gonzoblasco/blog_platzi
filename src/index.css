@@ -1,12 +1,12 @@
-.margen {
+.margin {
     margin: 100px;
 }
 
-.tabla {
+.table {
     width: 100%;
     text-align: left;
 }
 
-.tabla td {
+.table td {
     padding: 10px 0;
 }

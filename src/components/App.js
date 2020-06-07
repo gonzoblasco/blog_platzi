@@ -5,53 +5,41 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      usuarios: [],
+      users: [],
     };
   }
 
   async componentDidMount() {
-    const respuesta = await axios.get('https://jsonplaceholder.typicode.com/users');
-    console.log(respuesta.data);
+    const response = await axios.get('https://jsonplaceholder.typicode.com/users');
 
     this.setState({
-      usuarios: [
-        {
-          nombre: 'Gonzalo Blasco',
-          correo: 'gonzoblasco@gmail.com',
-          enlace: 'gonzaloblasco.com',
-        },
-        {
-          nombre: 'Platzi',
-          correo: 'platzi@platzi.com',
-          enlace: 'platzi.com',
-        },
-      ],
+      users: response.data,
     });
   }
 
-  ponerFilas = () => (
-    this.state.usuarios.map(usuario => (
-      <tr key={ usuario.correo }>
-        <td>{ usuario.nombre }</td>
-        <td>{ usuario.correo }</td>
-        <td>{ usuario.enlace }</td>
+  putRows = () => (
+    this.state.users.map(user => (
+      <tr key={ user.id }>
+        <td>{ user.name }</td>
+        <td>{ user.email }</td>
+        <td>{ user.website }</td>
       </tr>
     ))
   );
 
   render() {
     return (
-      <div className='margen'>
-        <table className='tabla'>
+      <div className='margin'>
+        <table className='table'>
           <thead>
           <tr>
-            <th>Nombre</th>
-            <th>Correo</th>
-            <th>Enlace</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Website</th>
           </tr>
           </thead>
           <tbody>
-          { this.ponerFilas() }
+          { this.putRows() }
           </tbody>
         </table>
       </div>
