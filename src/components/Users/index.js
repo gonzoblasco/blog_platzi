@@ -5,11 +5,6 @@ import * as usersActions from '../../actions/usersActions';
 
 class Users extends Component {
   componentDidMount() {
-    // const response = await axios.get('https://jsonplaceholder.typicode.com/users');
-    //
-    // this.setState({
-    //   users: response.data,
-    // });
     this.props.getAllUsers();
   }
 
