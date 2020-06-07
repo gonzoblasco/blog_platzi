@@ -29,7 +29,6 @@ class Users extends Component {
 
   render() {
     return (
-      <div className='margin'>
         <table className='table'>
           <thead>
           <tr>
@@ -42,7 +41,6 @@ class Users extends Component {
           { this.putRows() }
           </tbody>
         </table>
-      </div>
     );
   }
 }
