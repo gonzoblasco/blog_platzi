@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  usuarios: [],
+  users: [],
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -7,7 +7,7 @@ export default (state = INITIAL_STATE, action) => {
     case 'get_users':
       return {
         ...state,
-        usuarios: action.payload,
+        users: action.payload,
       };
 
     default:
