@@ -1,7 +1,11 @@
 import axios from 'axios';
-import { GET_ALL_USERS } from '../types/usersTypes';
+import { ERROR, GET_ALL_USERS, LOADING } from '../types/usersTypes';
 
 export const getAllUsers = () => async (dispatch) => {
+  dispatch({
+    type: LOADING,
+  });
+
   try {
     const response = await axios.get('https://jsonplaceholder.typicode.com/users');
 
@@ -11,5 +15,9 @@ export const getAllUsers = () => async (dispatch) => {
     });
   } catch ( e ) {
     console.error('Error:', e.message);
+    dispatch({
+      type: ERROR,
+      payload: e.message,
+    });
   }
 };
