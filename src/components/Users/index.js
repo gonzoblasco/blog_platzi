@@ -6,6 +6,7 @@ import * as usersActions from '../../actions/usersActions';
 
 import Spinner from '../General/Spinner';
 import Fatal from '../General/Fatal';
+import Table from './Table';
 
 class Users extends Component {
   componentDidMount() {
@@ -22,37 +23,12 @@ class Users extends Component {
     }
 
     return (
-      <table className='table'>
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Website</th>
-        </tr>
-        </thead>
-        <tbody>
-        { this.putRows() }
-        </tbody>
-      </table>
+      <Table users={ this.props.users } />
     );
   };
 
-  putRows = () => (
-    this.props.users.map(user => (
-      <tr key={ user.id }>
-        <td>{ user.name }</td>
-        <td>{ user.email }</td>
-        <td>{ user.website }</td>
-      </tr>
-    ))
-  );
-
   render() {
-    return (
-      <>
-        { this.putContent() }
-      </>
-    );
+    return <>{ this.putContent() }</>;
   }
 }
 
