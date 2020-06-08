@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as usersActions from '../../actions/usersActions';
 
 import Spinner from '../General/Spinner';
+import Fatal from '../General/Fatal';
 
 class Users extends Component {
   componentDidMount() {
@@ -14,6 +15,10 @@ class Users extends Component {
   putContent = () => {
     if ( this.props.loading ) {
       return <Spinner />;
+    }
+
+    if ( this.props.error ) {
+      return <Fatal message={ this.props.error } />;
     }
 
     return (

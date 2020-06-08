@@ -17,7 +17,7 @@ export const getAllUsers = () => async (dispatch) => {
     console.error('Error:', e.message);
     dispatch({
       type: ERROR,
-      payload: e.message,
+      payload: 'Something went wrong, try again later',
     });
   }
 };
