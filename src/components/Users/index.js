@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
@@ -23,12 +22,17 @@ class Users extends Component {
     }
 
     return (
-      <Table users={ this.props.users } />
+      <Table />
     );
   };
 
   render() {
-    return <>{ this.putContent() }</>;
+    return (
+      <Fragment>
+        <h1>Usuarios</h1>
+        { this.putContent() }
+      </Fragment>
+    );
   }
 }
 
