@@ -1,24 +1,21 @@
-import React, { Component } from 'react';
+// eslint-disable-next-line no-unused-vars
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import * as usersActions from '../../actions/usersActions';
+
+import Spinner from '../General/Spinner';
 
 class Users extends Component {
   componentDidMount() {
     this.props.getAllUsers();
   }
 
-  putRows = () => (
-    this.props.users.map(user => (
-      <tr key={ user.id }>
-        <td>{ user.name }</td>
-        <td>{ user.email }</td>
-        <td>{ user.website }</td>
-      </tr>
-    ))
-  );
+  putContent = () => {
+    if ( this.props.loading ) {
+      return <Spinner />;
+    }
 
-  render() {
     return (
       <table className='table'>
         <thead>
@@ -32,6 +29,24 @@ class Users extends Component {
         { this.putRows() }
         </tbody>
       </table>
+    );
+  };
+
+  putRows = () => (
+    this.props.users.map(user => (
+      <tr key={ user.id }>
+        <td>{ user.name }</td>
+        <td>{ user.email }</td>
+        <td>{ user.website }</td>
+      </tr>
+    ))
+  );
+
+  render() {
+    return (
+      <>
+        { this.putContent() }
+      </>
     );
   }
 }
