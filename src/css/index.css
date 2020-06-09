@@ -1,18 +1,16 @@
-body {
-    margin: 0;
-}
-
-.margin {
+#margen {
     margin: 100px;
+    margin-top: 50px;
 }
 
-.table {
+.tabla {
     width: 100%;
     text-align: left;
 }
 
-.table td {
-    padding: 10px 0;
+.tabla td {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 #menu {
@@ -26,10 +24,14 @@ body {
     padding-right: 50px;
 }
 
+body {
+    margin: 0;
+}
+
 .center {
     text-align: center;
 }
 
-.red {
+.rojo {
     color: red;
 }

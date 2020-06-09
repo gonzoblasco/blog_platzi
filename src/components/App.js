@@ -1,19 +1,18 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-
 import Menu from './Menu';
-import Users from './Users';
-import Posts from './Posts';
+import Usuarios from './Usuarios';
+import Publicaciones from './Publicaciones';
 
-const Tasks = () => <div>Tasks</div>;
+const Prueba = () => <div>hola</div>;
 
-const App = () => (
+const App = (props) => (
   <BrowserRouter>
     <Menu />
-    <div className='margin'>
-      <Route exact path='/' component={ Users } />
-      <Route exact path='/tasks' component={ Tasks } />
-      <Route exact path='/posts/:key' component={ Posts } />
+    <div id="margen">
+      <Route exact path='/' component={ Usuarios } />
+      <Route exact path='/tareas' component={ Prueba } />
+      <Route exact path='/publicaciones/:key' component={ Publicaciones } />
     </div>
   </BrowserRouter>
 );

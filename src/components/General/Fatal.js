@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default ({ message }) => {
-  return (
-    <h2 className='center red'>
-      { message }
-    </h2>
-  );
-}
+const Fatal = (props) => (
+  <h2 className='center rojo'>
+    { props.mensaje }
+  </h2>
+);
+
+export default Fatal;
