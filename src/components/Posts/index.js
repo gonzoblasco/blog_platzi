@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import * as postsActions from '../../actions/postsActions';
 import * as usersActions from '../../actions/usersActions';
+
+const { getAll: postsGetAll } = postsActions;
+const { getAll: usersGetAll } = usersActions;
 
 class Posts extends Component {
   componentDidMount() {
-    if ( !this.props.users.length ) {
-      this.props.getAllUsers();
+    if ( !this.props.usersReducer.users.length ) {
+      this.props.usersGetAll();
     }
   }
 
   render() {
-    const user = this.props.users;
-    console.log(user);
+    console.log(this.props);
     return (
       <div>
         <h1>Posts by </h1>
@@ -22,6 +25,13 @@ class Posts extends Component {
   }
 }
 
-const mapStateToProps = (reducers) => reducers.usersReducer;
+const mapDispatchToProps = {
+  postsGetAll,
+  usersGetAll,
+};
 
-export default connect(mapStateToProps, usersActions)(Posts);
+const mapStateToProps = ({ usersReducer, postsReducer }) => {
+  return { usersReducer, postsReducer };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Posts);

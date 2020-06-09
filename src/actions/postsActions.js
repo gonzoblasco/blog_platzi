@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ERROR, GET_ALL, LOADING } from '../types/usersTypes';
+import { GET_ALL, LOADING, ERROR } from '../types/postsTypes';
 
 export const getAll = () => async (dispatch) => {
   dispatch({
@@ -7,17 +7,17 @@ export const getAll = () => async (dispatch) => {
   });
 
   try {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+    const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
 
     dispatch({
       type: GET_ALL,
       payload: response.data,
     });
   } catch ( e ) {
-    console.error('Error:', e.message);
+    console.log(e.message);
     dispatch({
       type: ERROR,
-      payload: 'Something went wrong, try again later',
+      payload: 'Something went wrong, please tray again later.',
     });
   }
 };
