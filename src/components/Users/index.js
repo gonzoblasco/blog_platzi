@@ -29,7 +29,7 @@ class Users extends Component {
   render() {
     return (
       <Fragment>
-        <h1>Usuarios</h1>
+        <h1>Users</h1>
         { this.putContent() }
       </Fragment>
     );
