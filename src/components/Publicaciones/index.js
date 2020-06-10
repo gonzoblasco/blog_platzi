@@ -93,6 +93,9 @@ class Publicaciones extends Component {
       >
         <h2>{ publicacion.title }</h2>
         <p>{ publicacion.body }</p>
+        {
+          (publicacion.abierto) ? 'abierto' : 'cerrado'
+        }
       </div>
     ))
   );
