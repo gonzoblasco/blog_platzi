@@ -1,5 +1,12 @@
 import axios from 'axios';
-import { ACTUALIZAR, CARGANDO, ERROR, COM_CARGANDO, COM_ERROR } from '../types/publicacionesTypes';
+import {
+  ACTUALIZAR,
+  CARGANDO,
+  ERROR,
+  COM_ACTUALIZAR,
+  COM_ERROR,
+  COM_CARGANDO,
+} from '../types/publicacionesTypes';
 import * as usuariosTypes from '../types/usuariosTypes';
 
 const { TRAER_TODOS: USUARIOS_TRAER_TODOS } = usuariosTypes;
@@ -95,13 +102,13 @@ export const traerComentarios = (pub_key, com_key) => async (dispatch, getState)
     publicaciones_actualizadas[pub_key][com_key] = actualizada;
 
     dispatch({
-      type: ACTUALIZAR,
+      type: COM_ACTUALIZAR,
       payload: publicaciones_actualizadas,
     });
   } catch ( error ) {
     console.log(error.message);
     dispatch({
-      TYPE: COM_ERROR,
+      type: COM_ERROR,
       payload: 'Comentarios no disponibles.',
     });
   }

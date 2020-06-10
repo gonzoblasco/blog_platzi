@@ -5,13 +5,14 @@ import Fatal from '../General/Fatal';
 import Spinner from '../General/Spinner';
 
 const Comentarios = (props) => {
-  if ( props.cargando ) {
+  if ( props.com_error ) {
+    return <Fatal mensaje={ props.com_error } />;
+  }
+
+  if ( props.com_cargando && props.comentarios.length ) {
     return <Spinner />;
   }
 
-  if ( props.error ) {
-    return <Fatal mensaje={ props.error } />;
-  }
   const ponerComentarios = () => (
     props.comentarios.map((comentario) => (
       <li>
